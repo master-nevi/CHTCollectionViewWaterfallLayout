@@ -3,7 +3,7 @@ name: "CHTCollectionViewWaterfallLayout CI"
 on:
   push:
     branches:
-      - develop
+      - '*'
   pull_request:
     branches:
       - '*'
@@ -26,6 +26,14 @@ jobs:
         with:
           project: Demo/Swift/CHTWaterfallSwiftDemo.xcodeproj
           scheme: CHTWaterfallSwiftDemo
+          destination: name=iPhone 13 Pro
+          action: build
+
+      - name: Build Swift SPM Project
+        uses: sersoft-gmbh/xcodebuild-action@v1.8.0
+        with:
+          project: Demo/Swift/CHTWaterfallSwiftDemo.xcodeproj
+          scheme: CHTWaterfallSwiftSPMDemo
           destination: name=iPhone 13 Pro
           action: build
 
